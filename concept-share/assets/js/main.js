@@ -11,30 +11,51 @@
      ------------------------------------------------------------------ */
   const STOCK = "https://www.lorbek.com.au/stock/details/";
   const CARS = [
-    { img: 1,  year: 2018, make: "Mercedes-AMG",  model: "G63",                      desc: "463 MY18 · Diamond White · 7-speed automatic wagon", price: 189990,  cat: "Luxury SUVs",   kms: 146099, trans: "Automatic", body: "SUV",       url: "326812-1024647/2018-mercedes-amg-g63-luxury-suvs" },
-    { img: 2,  year: 2020, make: "Bentley",       model: "Flying Spur W12",          desc: "Moonbeam · Sedan",                                   price: 349880,  cat: "Prestige Cars", kms: 38509,  trans: "Automatic", body: "Sedan",     url: "326812-C000772/2021-bentley-flying-spur-prestige-cars" },
-    { img: 3,  year: 2023, make: "Lamborghini",   model: "Huracán STO",              desc: "724 · Green · 7-speed automatic coupe",              price: 559990,  cat: "Prestige Cars", kms: 33996,  trans: "Automatic", body: "Coupe",     url: "326812-1024629/2023-lamborghini-huracan-prestige-cars" },
-    { img: 4,  year: 2020, make: "Aston Martin",  model: "Vantage",                  desc: "MY21 · Onyx Black · 7-speed manual coupe",           price: 299990,  cat: "Prestige Cars", kms: 4910,   trans: "Manual",    body: "Coupe",     url: "326812-C000770/2021-aston-martin-vantage-prestige-cars" },
-    { img: 5,  year: 2013, make: "Land Rover",    model: "Range Rover Autobiography", desc: "LG 5.0 V8 SC · Barolo Black · 8-speed automatic",   price: 59990,   cat: "Luxury SUVs",   kms: 167148, trans: "Automatic", body: "SUV",       url: "326812-1024646/2013-land-rover-range-rover-luxury-suvs" },
-    { img: 6,  year: 2023, make: "Land Rover",    model: "Range Rover P530",         desc: "L460 MY23 · First Edition · 8-speed automatic",      price: 149990,  cat: "Luxury SUVs",   kms: 107215, trans: "Automatic", body: "SUV",       url: "326812-1024645/2023-land-rover-range-rover-luxury-suvs" },
-    { img: 7,  year: 2014, make: "Audi",          model: "A7 S-Line 3.0 TFSI",       desc: "4G MY14 · Quattro S/C · White · 7-speed automatic",  price: 23990,   cat: "Prestige Cars", kms: 127202, trans: "Automatic", body: "Hatchback", url: "326812-1024643/2014-audi-a7-prestige-cars" },
-    { img: 8,  year: 2016, make: "Jaguar",        model: "F-TYPE V6 S/C",            desc: "MY17 · White · 8-speed automatic coupe",             price: 69980,   cat: "Prestige Cars", kms: 61686,  trans: "Automatic", body: "Coupe",     url: "326812-C000769/2016-jaguar-f-type-prestige-cars" },
-    { img: 9,  year: 1983, make: "Lancia",        model: "037 Stradale",             desc: "White · 5-speed manual coupe",                       price: 1399990, cat: "Prestige Cars", kms: 19816,  trans: "Manual",    body: "Coupe",     url: "326812-1024630/1983-lancia-037-prestige-cars" },
-    { img: 10, year: 2019, make: "Audi",          model: "Q8 55 TFSI",               desc: "4M MY19 · Quattro MHEV · White · 8-speed automatic", price: 49990,   cat: "Luxury SUVs",   kms: 105775, trans: "Automatic", body: "SUV",       url: "326812-1024640/2019-audi-q8-luxury-suvs" },
-    { img: 11, year: 2019, make: "Rolls-Royce",   model: "Wraith Black Badge",       desc: "665C MY20 · Diamond Black · 8-speed automatic",      price: 579990,  cat: "Prestige Cars", kms: 17332,  trans: "Automatic", body: "Coupe",     url: "326812-C000767/2019-rolls-royce-wraith-prestige-cars" },
-    { img: 12, year: 2020, make: "Mercedes-Benz", model: "GLS 400d 4MATIC",          desc: "X167 MY20.5 · Selenite Grey · 9-speed automatic",    price: 69990,   cat: "Prestige Cars", kms: 115987, trans: "Automatic", body: "Wagon",     url: "326812-1024628/2020-mercedes-benz-gls-400d-prestige-cars" },
+    { img: 1,  frame: [0.5, 0.5, 1], year: 2018, make: "Mercedes-AMG",  model: "G63",                      desc: "463 MY18 · Diamond White · 7-speed automatic wagon", price: 189990,  cat: "Luxury SUVs",   kms: 146099, trans: "Automatic", body: "SUV",       url: "326812-1024647/2018-mercedes-amg-g63-luxury-suvs" },
+    { img: 2,  frame: [0.495, 0.51, 1.03], year: 2020, make: "Bentley",       model: "Flying Spur W12",          desc: "Moonbeam · Sedan",                                   price: 349880,  cat: "Prestige Cars", kms: 38509,  trans: "Automatic", body: "Sedan",     url: "326812-C000772/2021-bentley-flying-spur-prestige-cars" },
+    { img: 3,  frame: [0.5, 0.5, 1], year: 2023, make: "Lamborghini",   model: "Huracán STO",              desc: "724 · Green · 7-speed automatic coupe",              price: 559990,  cat: "Prestige Cars", kms: 33996,  trans: "Automatic", body: "Coupe",     url: "326812-1024629/2023-lamborghini-huracan-prestige-cars" },
+    { img: 4,  frame: [0.48, 0.55, 1.06], year: 2020, make: "Aston Martin",  model: "Vantage",                  desc: "MY21 · Onyx Black · 7-speed manual coupe",           price: 299990,  cat: "Prestige Cars", kms: 4910,   trans: "Manual",    body: "Coupe",     url: "326812-C000770/2021-aston-martin-vantage-prestige-cars" },
+    { img: 5,  frame: [0.51, 0.44, 1.06], year: 2013, make: "Land Rover",    model: "Range Rover Autobiography", desc: "LG 5.0 V8 SC · Barolo Black · 8-speed automatic",   price: 59990,   cat: "Luxury SUVs",   kms: 167148, trans: "Automatic", body: "SUV",       url: "326812-1024646/2013-land-rover-range-rover-luxury-suvs" },
+    { img: 6,  frame: [0.505, 0.44, 1.06], year: 2023, make: "Land Rover",    model: "Range Rover P530",         desc: "L460 MY23 · First Edition · 8-speed automatic",      price: 149990,  cat: "Luxury SUVs",   kms: 107215, trans: "Automatic", body: "SUV",       url: "326812-1024645/2023-land-rover-range-rover-luxury-suvs" },
+    { img: 7,  frame: [0.46, 0.515, 1.08], year: 2014, make: "Audi",          model: "A7 S-Line 3.0 TFSI",       desc: "4G MY14 · Quattro S/C · White · 7-speed automatic",  price: 23990,   cat: "Prestige Cars", kms: 127202, trans: "Automatic", body: "Hatchback", url: "326812-1024643/2014-audi-a7-prestige-cars" },
+    { img: 8,  frame: [0.5, 0.515, 1.03], year: 2016, make: "Jaguar",        model: "F-TYPE V6 S/C",            desc: "MY17 · White · 8-speed automatic coupe",             price: 69980,   cat: "Prestige Cars", kms: 61686,  trans: "Automatic", body: "Coupe",     url: "326812-C000769/2016-jaguar-f-type-prestige-cars" },
+    { img: 9,  frame: [0.49, 0.5, 1.12], year: 1983, make: "Lancia",        model: "037 Stradale",             desc: "White · 5-speed manual coupe",                       price: 1399990, cat: "Prestige Cars", kms: 19816,  trans: "Manual",    body: "Coupe",     url: "326812-1024630/1983-lancia-037-prestige-cars" },
+    { img: 10, frame: [0.47, 0.485, 1.06], year: 2019, make: "Audi",          model: "Q8 55 TFSI",               desc: "4M MY19 · Quattro MHEV · White · 8-speed automatic", price: 49990,   cat: "Luxury SUVs",   kms: 105775, trans: "Automatic", body: "SUV",       url: "326812-1024640/2019-audi-q8-luxury-suvs" },
+    { img: 11, frame: [0.495, 0.485, 1.03], year: 2019, make: "Rolls-Royce",   model: "Wraith Black Badge",       desc: "665C MY20 · Diamond Black · 8-speed automatic",      price: 579990,  cat: "Prestige Cars", kms: 17332,  trans: "Automatic", body: "Coupe",     url: "326812-C000767/2019-rolls-royce-wraith-prestige-cars" },
+    { img: 12, frame: [0.515, 0.44, 1.08], year: 2020, make: "Mercedes-Benz", model: "GLS 400d 4MATIC",          desc: "X167 MY20.5 · Selenite Grey · 9-speed automatic",    price: 69990,   cat: "Prestige Cars", kms: 115987, trans: "Automatic", body: "Wagon",     url: "326812-1024628/2020-mercedes-benz-gls-400d-prestige-cars" },
   ];
 
+  // pos = focal point on wide screens, mpos = focal point on phones (keeps the car in frame)
   const SLIDES = [
-    { img: "assets/img/hero/hp-banner2.jpg", make: "Welcome to",  model: "LORBEK Luxury Cars", cta: "View cars",   href: "#arrivals" },
-    { img: "assets/img/cars/car3.jpg",       make: "Lamborghini", model: "Huracán STO 2023",   cta: "View more",   href: STOCK + CARS[2].url,  ext: true },
-    { img: "assets/img/cars/car9.jpg",       make: "Lancia",      model: "037 Stradale 1983",  cta: "View more",   href: STOCK + CARS[8].url,  ext: true },
-    { img: "assets/img/cars/car11.jpg",      make: "Rolls-Royce", model: "Wraith Black Badge", cta: "View more",   href: STOCK + CARS[10].url, ext: true },
-    { img: "assets/img/hero/hp-banner.jpg",  make: "Port Melbourne", model: "The Showroom",    cta: "Visit us",    href: "#showrooms" },
+    { img: "assets/img/hero/showroom-sls.jpg",   pos: "50% 62%", mpos: "60% 60%", make: "Welcome to",     model: "LORBEK Luxury Cars", cta: "View cars", href: "#arrivals" },
+    { img: "assets/img/cars/car3.jpg",           pos: "50% 55%", mpos: "72% 55%", make: "Lamborghini",    model: "Huracán STO 2023",   cta: "View more", href: STOCK + CARS[2].url,  ext: true },
+    { img: "assets/img/cars/car9.jpg",           pos: "50% 55%", mpos: "66% 55%", make: "Lancia",         model: "037 Stradale 1983",  cta: "View more", href: STOCK + CARS[8].url,  ext: true },
+    { img: "assets/img/cars/car11.jpg",          pos: "50% 55%", mpos: "74% 55%", make: "Rolls-Royce",    model: "Wraith Black Badge", cta: "View more", href: STOCK + CARS[10].url, ext: true },
+    { img: "assets/img/hero/showroom-aston.jpg", pos: "50% 60%", mpos: "28% 60%", make: "Port Melbourne", model: "The Showroom",       cta: "Visit us",  href: "#showrooms" },
   ];
 
-  const BRANDS = ["Ferrari", "Lamborghini", "Porsche", "Rolls-Royce", "Bentley", "Aston Martin", "Mercedes-AMG", "McLaren", "Land Rover", "Lancia", "Jaguar", "Audi"];
+  // Marque logos (Simple Icons, CC0; Jaguar, Land Rover and Lancia from Wikimedia Commons, public domain).
+  // ratio = logo width / height, used to give every logo the same visual area.
+  const BRANDS = [
+    { name: "Ferrari",      logo: "ferrari",     ratio: 0.725 },
+    { name: "Lamborghini",  logo: "lamborghini", ratio: 0.86 },
+    { name: "Porsche",      logo: "porsche",     ratio: 0.784 },
+    { name: "Rolls-Royce",  logo: "rollsroyce",  ratio: 0.763 },
+    { name: "Bentley",      logo: "bentley",     ratio: 2.967 },
+    { name: "Aston Martin", logo: "astonmartin", ratio: 4.105 },
+    { name: "Mercedes-AMG", logo: "amg",         ratio: 8.583 },
+    { name: "McLaren",      logo: "mclaren",     ratio: 6.044 },
+    { name: "Land Rover",   logo: "landrover",   ratio: 1.874 },
+    { name: "Lancia",       logo: "lancia",      ratio: 8.32 },
+    { name: "Jaguar",       logo: "jaguar",      ratio: 3.97 },
+    { name: "Audi",         logo: "audi",        ratio: 2.787 },
+  ];
 
+  // Centre each car in its card: shift the photo to the car's centre point, zooming just enough to have room
+  const frameStyle = ([cx, cy, z] = [.5, .5, 1]) => {
+    const lim = v => Math.min(Math.max(v, .5 / z), 1 - .5 / z);
+    return `--cx:${lim(cx).toFixed(4)};--cy:${lim(cy).toFixed(4)};--z:${z}`;
+  };
   const fmtPrice = n => "$" + n.toLocaleString("en-AU");
   const fmtKms = n => n.toLocaleString("en-AU") + " km";
   const icon = {
@@ -114,7 +135,7 @@
 
   slidesEl.innerHTML = SLIDES.map((s, i) => `
     <div class="slide${i === 0 ? " is-active" : ""}" aria-hidden="${i !== 0}">
-      <img src="${s.img}" alt="" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>
+      <img src="${s.img}" alt="" style="--pos:${s.pos};--mpos:${s.mpos}" decoding="async" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>
     </div>`).join("");
   barsEl.innerHTML = SLIDES.map((_, i) => `<button aria-label="Go to slide ${i + 1}"><i></i></button>`).join("");
   barsEl.style.setProperty("--dur", DURATION / 1000 + "s");
@@ -180,17 +201,31 @@
   /* ------------------------------------------------------------------
      Brand marquee (duplicated for a seamless loop)
      ------------------------------------------------------------------ */
-  const brandHTML = BRANDS.map(b => `<span class="brand">${b}</span>`).join("");
+  // Equal visual area for tall emblems and long wordmarks, capped so neither gets extreme
+  const logoBox = ratio => {
+    const AREA = 2500;
+    let w = Math.min(Math.sqrt(AREA * ratio), 150), h = w / ratio;
+    if (h > 58) { h = 58; w = h * ratio; }
+    return `--lw:${w.toFixed(1)}px;--lh:${h.toFixed(1)}px;`;
+  };
+  const brandHTML = BRANDS.map(b => `
+    <span class="brand">
+      <i class="brand__logo" style="${logoBox(b.ratio)}-webkit-mask-image:url('assets/img/brands/${b.logo}.svg');mask-image:url('assets/img/brands/${b.logo}.svg')" role="img" aria-label="${b.name} logo"></i>
+      <span class="brand__name">${b.name}</span>
+    </span>`).join("");
   $("#marquee").innerHTML = brandHTML + brandHTML.replace(/class="brand"/g, 'class="brand" aria-hidden="true"');
 
   /* ------------------------------------------------------------------
      Latest arrivals carousel
      ------------------------------------------------------------------ */
   const track = $("#carTrack");
-  track.innerHTML = CARS.map(c => `
+  // Cars still waiting on photography (placeholder image) go to the end of the row
+  const PLACEHOLDER = new Set([1]);
+  const ordered = [...CARS].sort((a, b) => PLACEHOLDER.has(a.img) - PLACEHOLDER.has(b.img));
+  track.innerHTML = ordered.map(c => `
     <a class="card" href="${STOCK + c.url}" target="_blank" rel="noopener" data-cat="${c.cat}" draggable="false">
       <div class="card__media">
-        <img src="assets/img/cars/sm/car${c.img}.jpg" alt="${c.year} ${c.make} ${c.model}" loading="lazy" draggable="false">
+        <img src="assets/img/cars/sm/car${c.img}.jpg" alt="${c.year} ${c.make} ${c.model}" style="${frameStyle(c.frame)}" loading="lazy" decoding="async" draggable="false">
         <span class="card__badge">${c.cat}</span>
       </div>
       <div class="card__body">
@@ -352,4 +387,5 @@
     blocked(e);
   }, true);
   document.addEventListener("submit", blocked, true);
+
 })();
