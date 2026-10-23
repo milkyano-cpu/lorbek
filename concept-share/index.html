@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LORBEK Website Concept</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="LORBEK Luxury Cars has traded European prestige, luxury SUVs, sports cars, supercars and collectable classics for over 40 years. Showrooms in Port Melbourne and Rushcutters Bay, Sydney.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="icon" href="assets/img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@300;400;500&family=Chakra+Petch:wght@300;400;600;700&family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Concept preview tag -->
+  <div class="concept-tag" role="note">Concept preview</div>
+  <div class="concept-toast" id="conceptToast" role="status" aria-live="polite" hidden>Turned off in this prototype</div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <button class="menu-btn" id="menuOpen" aria-label="Open menu" aria-controls="menu" aria-expanded="false">
+        <span class="menu-btn__lines"><i></i><i></i><i></i></span>
+        <span class="menu-btn__label">Menu</span>
+      </button>
+
+      <a href="#top" class="logo" aria-label="LORBEK Luxury Cars — home">
+        <img src="assets/img/logo.png" alt="LORBEK Luxury Cars" width="160" height="60">
+      </a>
+
+      <div class="header__actions">
+        <a class="icon-btn hide-sm" href="tel:18008567235" aria-label="Call 1800 8 LORBEK" id="callBtn">
+          <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+        </a>
+        <button class="icon-btn" id="searchOpen" aria-label="Search inventory">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="header__progress" id="progress"></div>
+  </header>
+
+  <!-- ============ MENU OVERLAY ============ -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <div class="menu__top">
+      <button class="icon-btn" id="menuClose" aria-label="Close menu">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <img src="assets/img/logo.png" alt="" width="160" height="60">
+      <span class="menu__spacer"></span>
+    </div>
+    <div class="menu__body">
+      <nav class="menu__nav" aria-label="Main">
+        <a href="#arrivals" data-close><span>01</span>View Cars</a>
+        <a href="#categories" data-close><span>02</span>Prestige &amp; SUVs</a>
+        <a href="#services" data-close><span>03</span>Sell or Consign</a>
+        <a href="#finance" data-close><span>04</span>Finance</a>
+        <a href="#pininfarina" data-close><span>05</span>Pininfarina</a>
+        <a href="#showrooms" data-close><span>06</span>Showrooms</a>
+        <a href="#contact" data-close><span>07</span>Contact</a>
+      </nav>
+      <div class="menu__aside">
+        <div>
+          <p class="eyebrow-sm">Melbourne</p>
+          <p>30 Prohasky St, Port Melbourne VIC 3207</p>
+        </div>
+        <div>
+          <p class="eyebrow-sm">Sydney</p>
+          <p>137–141 Bayswater Rd, Rushcutters Bay NSW 2011</p>
+        </div>
+        <div>
+          <p class="eyebrow-sm">Call</p>
+          <p><a href="tel:18008567235">1800 8 LORBEK</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SEARCH OVERLAY ============ -->
+  <div class="search" id="search" aria-hidden="true" role="dialog" aria-label="Search inventory">
+    <div class="search__panel">
+      <div class="search__bar">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="searchInput" type="search" placeholder="Search make, model or year…" autocomplete="off">
+        <button class="icon-btn" id="searchClose" aria-label="Close search">
+          <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <div class="search__results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" aria-roledescription="carousel" aria-label="Featured">
+      <div class="hero__slides" id="heroSlides"></div>
+
+      <div class="hero__content">
+        <p class="hero__make" id="heroMake"></p>
+        <h1 class="hero__model" id="heroModel"></h1>
+        <a class="btn btn--pill" id="heroCta" href="#arrivals">
+          <span id="heroCtaLabel">View more</span>
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <div class="hero__ui">
+        <div class="hero__count"><b id="heroIdx">01</b> / <span id="heroTotal">05</span></div>
+        <div class="hero__bars" id="heroBars"></div>
+        <div class="hero__arrows">
+          <button class="round-btn" id="heroPrev" aria-label="Previous slide"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button class="round-btn" id="heroNext" aria-label="Next slide"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+
+      <a href="#about" class="hero__scroll" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about" id="about">
+      <div class="about__media" aria-hidden="true">
+        <img src="assets/img/hero/hp-banner6.jpg" alt="" loading="lazy">
+      </div>
+      <div class="container about__inner">
+        <p class="eyebrow reveal"><i></i>Australia's European prestige specialists</p>
+        <h2 class="about__logo reveal"><img src="assets/img/logo.png" alt="LORBEK Luxury Cars" width="240" height="90"></h2>
+        <div class="about__copy reveal">
+          <p>For over 40 years LORBEK Luxury Cars has traded in the world of luxury, sports and supercars, exotic and classic cars — from <a href="#arrivals">Ferrari</a>, <a href="#arrivals">Lamborghini</a> and <a href="#arrivals">Porsche</a> to <a href="#arrivals">Rolls-Royce</a>, <a href="#arrivals">Bentley</a>, <a href="#arrivals">Aston Martin</a> and <a href="#arrivals">Mercedes-AMG</a>.</p>
+          <p>Two showrooms, in Port Melbourne and Sydney's Rushcutters Bay, hold a curated collection of European prestige cars, luxury SUVs and collectable classics. Every one is selected and presented by people who have spent their lives around them.</p>
+        </div>
+        <dl class="stats reveal">
+          <div><dt><span class="count" data-to="40">0</span><span class="red">+</span></dt><dd>Years of experience</dd></div>
+          <div><dt><span class="count" data-to="90">0</span><span class="red">K+</span></dt><dd>Followers worldwide</dd></div>
+          <div><dt><span class="count" data-to="2">0</span></dt><dd>Showrooms · MEL &amp; SYD</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ BRANDS MARQUEE ============ -->
+    <section class="brands" aria-label="Marques we trade">
+      <p class="eyebrow eyebrow--center reveal"><i></i>The world's finest marques<i></i></p>
+      <div class="marquee">
+        <div class="marquee__track" id="marquee"></div>
+      </div>
+    </section>
+
+    <!-- ============ LATEST ARRIVALS ============ -->
+    <section class="arrivals" id="arrivals">
+      <div class="container section-head">
+        <div>
+          <p class="eyebrow reveal"><i></i>Just arrived</p>
+          <h2 class="h2 reveal">Latest Arrivals</h2>
+        </div>
+        <div class="arrivals__controls">
+          <button class="round-btn" id="carPrev" aria-label="Previous cars"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button class="round-btn" id="carNext" aria-label="Next cars"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+
+      <div class="filters container reveal" role="tablist" aria-label="Filter by category">
+        <button class="chip is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="chip" data-filter="Prestige Cars" role="tab" aria-selected="false">Prestige Cars</button>
+        <button class="chip" data-filter="Luxury SUVs" role="tab" aria-selected="false">Luxury SUVs</button>
+      </div>
+
+      <div class="track" id="carTrack" tabindex="0" aria-label="Latest arrivals"></div>
+
+      <div class="container arrivals__foot">
+        <div class="dashes" id="carDashes"></div>
+        <a class="link-arrow" href="https://www.lorbek.com.au/stock" target="_blank" rel="noopener">View all <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </section>
+
+    <!-- ============ CATEGORY TILES ============ -->
+    <section class="tiles" id="categories" aria-label="Explore">
+      <a class="tile reveal" href="#arrivals" data-filter-link="all">
+        <img src="assets/img/hero/hp-banner8.jpg" alt="" loading="lazy">
+        <span class="tile__title">Available<br>Cars</span>
+        <span class="tile__go"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="tile reveal" href="#arrivals" data-filter-link="Prestige Cars">
+        <img src="assets/img/cars/sm/car4.jpg" alt="" loading="lazy">
+        <span class="tile__title">Prestige<br>Cars</span>
+        <span class="tile__go"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="tile reveal" href="#arrivals" data-filter-link="Luxury SUVs">
+        <img src="assets/img/cars/sm/car5.jpg" alt="" loading="lazy">
+        <span class="tile__title">Luxury<br>SUVs</span>
+        <span class="tile__go"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="tile reveal" href="#services">
+        <img src="assets/img/hero/hp-banner4.jpg" alt="" loading="lazy">
+        <span class="tile__title">Sell My<br>Car</span>
+        <span class="tile__go"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="tile reveal" href="#services">
+        <img src="assets/img/hero/hp-banner5.jpg" alt="" loading="lazy">
+        <span class="tile__title">Consign<br>Your Car</span>
+        <span class="tile__go"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="tile reveal" href="#finance">
+        <img src="assets/img/cars/sm/car11.jpg" alt="" loading="lazy">
+        <span class="tile__title">Finance &amp;<br>Insurance</span>
+        <span class="tile__go"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+    </section>
+
+    <!-- ============ FINANCE PROMO ============ -->
+    <section class="container" id="finance">
+      <div class="promo reveal">
+        <div class="promo__media" aria-hidden="true">
+          <img src="assets/img/hero/hp-banner7.jpg" alt="" loading="lazy">
+        </div>
+        <div class="promo__body">
+          <p class="eyebrow"><i></i>LORBEK Finance</p>
+          <h2 class="h2">Drive it home<br>the same day</h2>
+          <p>Found the perfect car? Our in-house finance and insurance specialist builds a package around you. We handle the paperwork and chase the best rates so you can drive home the same day.</p>
+          <a class="link-arrow" href="#contact">Find out more <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ AUTOMOBILI PININFARINA ============ -->
+    <section class="apf" id="pininfarina" aria-labelledby="apfTitle">
+      <div class="apf__media">
+        <img src="assets/img/pininfarina.png" alt="Automobili Pininfarina Battista with its doors raised" loading="lazy">
+      </div>
+      <div class="container apf__grid">
+        <div class="reveal">
+          <p class="eyebrow"><i></i>Automobili Pininfarina · Melbourne</p>
+          <h2 class="sr-only" id="apfTitle">Automobili Pininfarina</h2>
+          <img class="apf__logo" src="assets/img/pininfarina-logo.png" alt="Automobili Pininfarina" width="400" height="65">
+        </div>
+        <div class="apf__copy reveal">
+          <p>For almost 90 years, Pininfarina has shaped the automotive world, giving countless luxury vehicles their distinctive form. Pioneers of purity and innovation: pure form, pure energy, pure sensation, pure drive experience.</p>
+          <p class="apf__lead">Discover the revolution in luxury.</p>
+          <a class="btn btn--pill" href="https://apf-melbourne.com.au/" target="_blank" rel="noopener">Find out more <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow reveal"><i></i>Everything under one roof</p>
+            <h2 class="h2 reveal">Our Services</h2>
+          </div>
+          <p class="section-head__note reveal">Whether you're buying, selling or protecting your investment, one team handles it from first enquiry to delivery.</p>
+        </div>
+        <ol class="services__grid">
+          <li class="svc reveal"><span class="svc__no">01</span><h3>Vehicle Sales</h3><p>European prestige, luxury SUVs, supercars and collectable classics, ready to drive.</p></li>
+          <li class="svc reveal"><span class="svc__no">02</span><h3>Sell Your Car</h3><p>A fast, fair and discreet offer on your prestige car.</p></li>
+          <li class="svc reveal"><span class="svc__no">03</span><h3>Consignment</h3><p>We present and market your car for you. Sydney only.</p></li>
+          <li class="svc reveal"><span class="svc__no">04</span><h3>Vehicle Valuation</h3><p>Valuations based on four decades of market knowledge.</p></li>
+          <li class="svc reveal"><span class="svc__no">05</span><h3>Trade-In</h3><p>Trade your current car toward your next one in a single transaction.</p></li>
+          <li class="svc reveal"><span class="svc__no">06</span><h3>Finance &amp; Insurance</h3><p>Specialist packages from our in-house finance team.</p></li>
+          <li class="svc reveal"><span class="svc__no">07</span><h3>Extended Warranty</h3><p>Cover that keeps your car protected long after you collect it.</p></li>
+          <li class="svc reveal"><span class="svc__no">08</span><h3>Transport</h3><p>Enclosed vehicle delivery Australia-wide, door to door.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ SHOWROOMS ============ -->
+    <section class="showrooms container" id="showrooms">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow reveal"><i></i>Visit us</p>
+          <h2 class="h2 reveal">Our Showrooms</h2>
+        </div>
+      </div>
+      <div class="showrooms__grid">
+        <article class="room reveal">
+          <img src="assets/img/hero/dealership.jpg" alt="LORBEK Port Melbourne showroom" loading="lazy">
+          <div class="room__body">
+            <p class="eyebrow-sm">Melbourne</p>
+            <h3>Port Melbourne</h3>
+            <p>30 Prohasky St, Port Melbourne VIC 3207</p>
+            <p class="room__lic">LMCT 6422</p>
+            <a class="link-arrow" href="https://maps.google.com/?q=30+Prohasky+St+Port+Melbourne+VIC+3207" target="_blank" rel="noopener">Get directions <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+        <article class="room reveal">
+          <img src="assets/img/hero/hp-banner3.jpg" alt="LORBEK showroom interior" loading="lazy">
+          <div class="room__body">
+            <p class="eyebrow-sm">Sydney</p>
+            <h3>Rushcutters Bay</h3>
+            <p>137–141 Bayswater Road, Rushcutters Bay NSW 2011</p>
+            <p class="room__lic">MD088679</p>
+            <a class="link-arrow" href="https://maps.google.com/?q=137+Bayswater+Road+Rushcutters+Bay+NSW+2011" target="_blank" rel="noopener">Get directions <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ NEWSLETTER ============ -->
+    <section class="container" id="newsletter">
+      <div class="news reveal">
+        <div class="news__body">
+          <p class="eyebrow"><i></i>The newsletter</p>
+          <h2 class="h2">First to know</h2>
+          <p>New arrivals, rare classics and stories from the LORBEK showrooms, sent to your inbox before they hit the website.</p>
+          <form class="news__form" id="newsForm" novalidate>
+            <label class="sr-only" for="newsEmail">Email address</label>
+            <input id="newsEmail" type="email" placeholder="Enter your email" required>
+            <button class="round-btn round-btn--light" aria-label="Subscribe"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </form>
+          <p class="news__fine" id="newsMsg">Curated arrivals only. No spam.</p>
+        </div>
+        <div class="news__media" aria-hidden="true">
+          <img src="assets/img/cars/car3.jpg" alt="" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="assets/img/logo.png" alt="LORBEK Luxury Cars" width="180" height="68">
+        <p>Trading European prestige, luxury SUVs, sports cars, supercars and collectable classics for over 40 years.</p>
+        <p class="eyebrow-sm">Call</p>
+        <a class="footer__phone" href="tel:18008567235">
+          <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          1800 8 LORBEK
+        </a>
+        <div class="social">
+          <a href="https://www.facebook.com/lorbekcars/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v7h4v-7h3l1-4h-4V9.5a.5.5 0 0 1 .5-.5z"/></svg></a>
+          <a href="https://www.instagram.com/lorbekluxurycars/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a>
+          <a href="https://www.youtube.com/user/LorbekLuxuryCars327" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg></a>
+          <a href="https://twitter.com/LorbekLuxCars" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4 4 20"/></svg></a>
+        </div>
+      </div>
+
+      <nav class="footer__col" aria-label="Purchasing">
+        <p class="eyebrow-sm">Purchasing</p>
+        <a href="#arrivals">View Cars</a>
+        <a href="#categories">Prestige Cars</a>
+        <a href="#categories">Luxury SUVs</a>
+        <a href="https://www.lorbek.com.au/stock?condition=Wholesale" target="_blank" rel="noopener">Wholesale &amp; Trade-Ins</a>
+        <a href="#finance">Finance</a>
+        <a href="https://www.lorbek.com.au/recent-sales" target="_blank" rel="noopener">Recent Sales</a>
+      </nav>
+      <nav class="footer__col" aria-label="Selling and aftersales">
+        <p class="eyebrow-sm">Selling</p>
+        <a href="#services">Sell My Car</a>
+        <a href="#services">Consign Your Car</a>
+        <p class="eyebrow-sm footer__gap">Aftersales</p>
+        <a href="#services">Service</a>
+        <a href="#services">Warranty</a>
+        <a href="#services">Insurance</a>
+      </nav>
+      <nav class="footer__col" aria-label="Company">
+        <p class="eyebrow-sm">Company</p>
+        <a href="#about">About Us</a>
+        <a href="#pininfarina">Automobili Pininfarina</a>
+        <a href="#showrooms">Showroom Tour</a>
+        <a href="https://www.lorbek.com.au/about/meet-the-team" target="_blank" rel="noopener">Meet the Team</a>
+        <a href="https://www.lorbek.com.au/testimonials" target="_blank" rel="noopener">Testimonials</a>
+        <a href="https://www.lorbek.com.au/about/lorbek-tv" target="_blank" rel="noopener">LORBEK TV</a>
+        <a href="#contact">Contact Us</a>
+      </nav>
+      <div class="footer__col">
+        <p class="eyebrow-sm">Melbourne</p>
+        <p>30 Prohasky St,<br>Port Melbourne VIC 3207</p>
+        <p class="eyebrow-sm footer__gap">Sydney</p>
+        <p>137–141 Bayswater Road,<br>Rushcutters Bay NSW 2011</p>
+      </div>
+    </div>
+    <div class="footer__wordmark" aria-hidden="true">LORBEK</div>
+    <div class="container concept-note" role="note">
+      <b>Design concept</b> This page is a redesign concept prepared for LORBEK Luxury Cars. It is not the official LORBEK website. Links, forms and contact actions are turned off.
+    </div>
+    <div class="container footer__legal">
+      <span>© <span id="year">2026</span> LORBEK Luxury Cars · LMCT 6422 · MD088679</span>
+      <span><a href="https://www.lorbek.com.au/privacy-policy" target="_blank" rel="noopener">Terms</a><a href="https://www.lorbek.com.au/privacy-policy" target="_blank" rel="noopener">Privacy</a></span>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
