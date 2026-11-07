@@ -28,9 +28,9 @@
   // pos = focal point on wide screens, mpos = focal point on phones (keeps the car in frame)
   const SLIDES = [
     { img: "assets/img/hero/showroom-sls.jpg",   pos: "50% 62%", mpos: "60% 60%", make: "Welcome to",     model: "LORBEK Luxury Cars", cta: "View cars", href: "#arrivals" },
-    { img: "assets/img/cars/car3.jpg",           pos: "50% 55%", mpos: "72% 55%", make: "Lamborghini",    model: "Huracán STO 2023",   cta: "View more", href: STOCK + CARS[2].url,  ext: true },
-    { img: "assets/img/cars/car9.jpg",           pos: "50% 55%", mpos: "66% 55%", make: "Lancia",         model: "037 Stradale 1983",  cta: "View more", href: STOCK + CARS[8].url,  ext: true },
-    { img: "assets/img/cars/car11.jpg",          pos: "50% 55%", mpos: "74% 55%", make: "Rolls-Royce",    model: "Wraith Black Badge", cta: "View more", href: STOCK + CARS[10].url, ext: true },
+    { img: "assets/img/cars/car3.jpg",  mimg: "assets/img/hero/car3-portrait.jpg",  pos: "50% 55%", mpos: "50% 50%", make: "Lamborghini",    model: "Huracán STO 2023",   cta: "View more", href: STOCK + CARS[2].url,  ext: true },
+    { img: "assets/img/cars/car9.jpg",  mimg: "assets/img/hero/car9-portrait.jpg",  pos: "50% 55%", mpos: "50% 50%", make: "Lancia",         model: "037 Stradale 1983",  cta: "View more", href: STOCK + CARS[8].url,  ext: true },
+    { img: "assets/img/cars/car11.jpg", mimg: "assets/img/hero/car11-portrait.jpg", pos: "50% 55%", mpos: "50% 50%", make: "Rolls-Royce",    model: "Wraith Black Badge", cta: "View more", href: STOCK + CARS[10].url, ext: true },
     { img: "assets/img/hero/showroom-aston.jpg", pos: "50% 60%", mpos: "28% 60%", make: "Port Melbourne", model: "The Showroom",       cta: "Visit us",  href: "#showrooms" },
   ];
 
@@ -135,7 +135,10 @@
 
   slidesEl.innerHTML = SLIDES.map((s, i) => `
     <div class="slide${i === 0 ? " is-active" : ""}" aria-hidden="${i !== 0}">
-      <img src="${s.img}" alt="" style="--pos:${s.pos};--mpos:${s.mpos}" decoding="async" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>
+      <picture>
+        ${s.mimg ? `<source media="(max-width: 860px)" srcset="${s.mimg}">` : ""}
+        <img src="${s.img}" alt="" style="--pos:${s.pos};--mpos:${s.mpos}" decoding="async" fetchpriority="${i === 0 ? "high" : "low"}">
+      </picture>
     </div>`).join("");
   barsEl.innerHTML = SLIDES.map((_, i) => `<button aria-label="Go to slide ${i + 1}"><i></i></button>`).join("");
   barsEl.style.setProperty("--dur", DURATION / 1000 + "s");
@@ -203,9 +206,9 @@
      ------------------------------------------------------------------ */
   // Equal visual area for tall emblems and long wordmarks, capped so neither gets extreme
   const logoBox = ratio => {
-    const AREA = 2500;
-    let w = Math.min(Math.sqrt(AREA * ratio), 150), h = w / ratio;
-    if (h > 58) { h = 58; w = h * ratio; }
+    const AREA = 1700;
+    let w = Math.min(Math.sqrt(AREA * ratio), 120), h = w / ratio;
+    if (h > 46) { h = 46; w = h * ratio; }
     return `--lw:${w.toFixed(1)}px;--lh:${h.toFixed(1)}px;`;
   };
   const brandHTML = BRANDS.map(b => `
@@ -226,7 +229,6 @@
     <a class="card" href="${STOCK + c.url}" target="_blank" rel="noopener" data-cat="${c.cat}" draggable="false">
       <div class="card__media">
         <img src="assets/img/cars/sm/car${c.img}.jpg" alt="${c.year} ${c.make} ${c.model}" style="${frameStyle(c.frame)}" loading="lazy" decoding="async" draggable="false">
-        <span class="card__badge">${c.cat}</span>
       </div>
       <div class="card__body">
         <span class="card__make">${c.year} · ${c.make}</span>
@@ -365,4 +367,28 @@
   });
 
   $("#year").textContent = new Date().getFullYear();
+
+  /* ------------------------------------------------------------------
+     Concept preview: every outside link, call and form is turned off
+     ------------------------------------------------------------------ */
+  const toast = $("#conceptToast");
+  let toastTimer;
+  function blocked(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    toast.hidden = false;
+    toast.style.animation = "none"; void toast.offsetWidth; toast.style.animation = "";
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { toast.hidden = true; }, 2400);
+  }
+  document.addEventListener("click", e => {
+    const a = e.target.closest("a[href]");
+    if (!a) return;
+    const href = a.getAttribute("href");
+    if (href.startsWith("#")) return;
+    blocked(e);
+  }, true);
+  document.addEventListener("submit", blocked, true);
+
+
 })();

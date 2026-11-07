@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LORBEK Luxury Cars | European Prestige, Supercars & Classics — Melbourne & Sydney</title>
+  <title>LORBEK Website Concept</title>
+  <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="LORBEK Luxury Cars has traded European prestige, luxury SUVs, sports cars, supercars and collectable classics for over 40 years. Showrooms in Port Melbourne and Rushcutters Bay, Sydney.">
   <meta name="theme-color" content="#0a0a0b">
   <link rel="icon" href="assets/img/logo.png">
@@ -15,6 +16,10 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Concept preview tag -->
+  <div class="concept-tag" role="note">Concept preview</div>
+  <div class="concept-toast" id="conceptToast" role="status" aria-live="polite" hidden>Turned off in this prototype</div>
 
   <!-- ============ HEADER ============ -->
   <header class="header" id="header">
@@ -310,7 +315,10 @@
           <p class="news__fine" id="newsMsg">Curated arrivals only. No spam.</p>
         </div>
         <div class="news__media" aria-hidden="true">
-          <img src="assets/img/cars/car3.jpg" alt="" loading="lazy" decoding="async">
+          <picture>
+            <source media="(min-width: 861px)" srcset="assets/img/hero/car3-portrait.jpg">
+            <img src="assets/img/cars/car3.jpg" alt="" loading="lazy" decoding="async">
+          </picture>
         </div>
       </div>
     </section>
@@ -371,6 +379,9 @@
       </div>
     </div>
     <div class="footer__wordmark" aria-hidden="true">LORBEK</div>
+    <div class="container concept-note" role="note">
+      <b>Design concept</b> This page is a redesign concept prepared for LORBEK Luxury Cars. It is not the official LORBEK website. Links, forms and contact actions are turned off.
+    </div>
     <div class="container footer__legal">
       <span>© <span id="year">2026</span> LORBEK Luxury Cars · LMCT 6422 · MD088679</span>
       <span><a href="https://www.lorbek.com.au/privacy-policy" target="_blank" rel="noopener">Terms</a><a href="https://www.lorbek.com.au/privacy-policy" target="_blank" rel="noopener">Privacy</a></span>
