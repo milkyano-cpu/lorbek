@@ -279,7 +279,7 @@ svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width:
 }
 .about__inner { position: relative; }
 .about__logo { margin: 0 0 26px; }
-.about__logo img { width: clamp(170px, 15vw, 220px); height: auto; filter: drop-shadow(0 12px 30px rgba(0, 0, 0, .6)); }
+.about__logo img { width: clamp(72px, 6.4vw, 96px); height: auto; filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .55)); }
 .about__copy { max-width: 580px; color: #c9c9cf; font-size: clamp(15px, 1.05vw, 16.5px); }
 .about__copy p { margin: 0 0 14px; }
 .about__copy a { color: var(--red-2); border-bottom: 1px solid transparent; transition: border-color .2s; }
